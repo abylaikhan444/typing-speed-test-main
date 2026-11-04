@@ -1,0 +1,9 @@
+:root {
+  --main-background-color: hsl(0, 0%, 15%);
+  --header-text-color: #fff;
+  --header-count-color: hsl(240, 3%, 46%);
+
+  --typing-stats-text-color: hsl(240, 3%, 46%);
+  --typing-stats-start-count-color: #fff;
+
+}

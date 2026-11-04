@@ -1,0 +1,241 @@
+/* ============================================================
+   RESET.CSS — Universal Reset Template
+   Автор: Aby444 | Версия: 1.0
+   Подключай первым: <link rel="stylesheet" href="reset.css">
+   ============================================================ */
+
+/* --- 1. Box Model --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- 2. Root & Document --- */
+html {
+  font-size: 16px; /* базовый rem */
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%; /* предотвращает автоувеличение на iOS */
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+/* --- 3. Типографика --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p,
+blockquote,
+figcaption {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+
+/* --- 4. Списки --- */
+ul,
+ol {
+  list-style: none;
+}
+
+/* --- 5. Медиа (изображения, видео) --- */
+img,
+picture,
+video,
+canvas,
+svg,
+audio {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  border-style: none; /* IE fix */
+}
+
+svg {
+  overflow: hidden; /* IE fix */
+  fill: currentColor;
+}
+
+/* --- 6. Формы --- */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  cursor: pointer;
+  display: inline-block;
+}
+
+button:disabled,
+input:disabled {
+  cursor: not-allowed;
+}
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+}
+
+fieldset {
+  border: none;
+}
+
+legend {
+  padding: 0;
+}
+
+[type='search'] {
+  outline-offset: -2px;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* --- 7. Таблицы --- */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td {
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* --- 8. Скрытые и вспомогательные элементы --- */
+[hidden] {
+  display: none !important;
+}
+
+/* Visually hidden (доступно для скрин-ридеров) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- 9. Анимации (отключение для тех, кто предпочитает) --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- 10. Другое --- */
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
+details > summary {
+  cursor: pointer;
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid currentColor;
+  height: 0;
+  margin: 0;
+}
+
+address {
+  font-style: normal;
+}
+
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* ============================================================
+   КОНЕЦ RESET.CSS
+   ============================================================ */

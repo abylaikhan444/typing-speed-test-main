@@ -1,0 +1,60 @@
+@import url(reset.css);
+@import url(index.css);
+
+@font-face {
+  font-family: 'Sora';
+  src: url(../assets/fonts/Sora/Sora-VariableFont_wght.ttf);
+  font-weight: 100 900;
+}
+
+body {
+  background-color: var(--main-background-color);
+}
+
+/*/ HEADER MOBILE LAYOUT /*/
+
+.typing-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Sora', sans-serif;
+  padding: 15px;
+  align-items: center;
+}
+.typing-header__logo {
+  width: 35px;
+  height: 35px;
+}
+.typing-header__score {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.typing-header__score-text {
+  font-size: 1rem;
+  color: var(--header-count-color);
+}
+.typing-header__score-count {
+  color: var(--header-text-color);
+}
+
+/*/ TYPING STATS MOBILE LAYOUT /*/
+
+.typing-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: 'Sora', sans-serif;
+}
+.typing-stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.typing-stats__label {
+  font-size: 1rem;
+  color: var(--typing-stats-text-color);
+}
+.typing-stats__value {
+  color: var(--typing-stats-start-count-color);
+}
