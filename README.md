@@ -1,4 +1,5 @@
 # Frontend Mentor - Typing Speed Test
+<img width="345" height="340" alt="image" src="https://github.com/user-attachments/assets/423df679-0acd-4625-a152-c16741fa49e7" />
 
 ![Design preview for the Typing Speed Test coding challenge](./preview.jpg)
 
@@ -160,6 +161,8 @@ We love receiving feedback! We're always looking to improve our challenges and o
 This challenge is completely free. Please share it with anyone who will find it useful for practice.
 
 **Have fun building!** 🚀
-#   t y p i n g - s p e e d - t e s t - m a i n  
- #   t y p i n g - s p e e d - t e s t - m a i n  
+#   t y p i n g - s p e e d - t e s t - m a i n 
+ 
+ #   t y p i n g - s p e e d - t e s t - m a i n 
+ 
  
