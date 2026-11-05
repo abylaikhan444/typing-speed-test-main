@@ -17,16 +17,57 @@
     </header>
     <div class="typing-stats">
       <div class="typing-stats__item">
-        <span class="typing-stats__label">WPM</span>
+        <span class="typing-stats__label">WPM:</span>
         <span class="typing-stats__value">0</span>
       </div>
-      <div class="typing-stats__item">
-        <span class="typing-stats__label">Accuracy</span>
+      <div class="typing-stats__item typing-stats__item--accuracy">
+        <span class="typing-stats__label">Accuracy:</span>
         <span class="typing-stats__value">100%</span>
       </div>
       <div class="typing-stats__item">
-        <span class="typing-stats__label">Time</span>
+        <span class="typing-stats__label">Time:</span>
         <span class="typing-stats__value">0:60</span>
+      </div>
+    </div>
+
+    <div class="filters">
+      <!-- меню 1 -->
+      <div class="dropdown">
+        <button class="dropdown__btn" type="button">
+          <span class="dropdown__value">Hard</span>
+          <img class="dropdown__arrow" src="./assets/images/icon-down-arrow.svg" alt="icon-down-arrow" />
+        </button>
+        <div class="dropdown__menu">
+          <label class="option">
+            <input type="radio" name="difficult" value="Easy" />
+            <span>Easy</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="difficult" value="Medium" />
+            <span>Medium</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="difficult" value="Hard" />
+            <span>Hard</span>
+          </label>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown__btn" type="button">
+          <span class="dropdown__value">Timed (60s)</span>
+          <img class="dropdown__arrow" src="./assets/images/icon-down-arrow.svg" alt="icon-down-arrow" />
+        </button>
+
+        <div class="dropdown__menu">
+          <label class="option">
+            <input type="radio" name="mode" value="Timed (60s)" checked />
+            <span>Timed (60s)</span>
+          </label>
+          <label class="option">
+            <input type="radio" name="mode" value="Passage" />
+            <span>Passage</span>
+          </label>
+        </div>
       </div>
     </div>
     <!-- <footer class="attribution">
