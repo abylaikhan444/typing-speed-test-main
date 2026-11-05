@@ -5,8 +5,17 @@
 
   --typing-stats-text-color: hsl(240, 3%, 46%);
   --typing-stats-start-count-color: #fff;
-  --typing-stats-border-color: hsl(240, 3%, 46%);
+  --typing-stats-border-color: hsl(0, 0%, 15%);
 
   --filters-border-color: hsl(240, 3%, 46%);
   --filters-button-text-color: #fff;
+  --dropdown-menu-background-color: hsl(0, 0%, 15%);
+  --dropdown-dot-border-color: #fff;
+  --dropdown-dot-background-color: hsl(210, 100%, 65%);
+  --dropdown-text-color: #fff;
+  --option-border-color: hsl(240, 3%, 46%);
+
+  --main-text-color: #fff;
+  --main-border-color: hsl(0, 0%, 15%);
+  --main-btn-background: hsl(214, 100%, 55%);
 }

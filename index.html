@@ -33,13 +33,13 @@
     <div class="filters">
       <!-- меню 1 -->
       <div class="dropdown">
-        <button class="dropdown__btn" type="button">
-          <span class="dropdown__value">Hard</span>
+        <button class="dropdown__btn" id="btn-challenge" type="button">
+          <span class="dropdown__value">Easy</span>
           <img class="dropdown__arrow" src="./assets/images/icon-down-arrow.svg" alt="icon-down-arrow" />
         </button>
         <div class="dropdown__menu">
           <label class="option">
-            <input type="radio" name="difficult" value="Easy" />
+            <input type="radio" name="difficult" value="Easy" checked />
             <span>Easy</span>
           </label>
           <label class="option">
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="dropdown">
-        <button class="dropdown__btn" type="button">
+        <button class="dropdown__btn" id="btn-timer" type="button">
           <span class="dropdown__value">Timed (60s)</span>
           <img class="dropdown__arrow" src="./assets/images/icon-down-arrow.svg" alt="icon-down-arrow" />
         </button>
@@ -70,10 +70,23 @@
         </div>
       </div>
     </div>
+
+    <main class="main">
+      <p class="main__text">
+        The sun rose over the quiet town. Birds sang in the trees as people woke up and started their day. It was going
+        to be a warm and sunny morning. going to be a warm and sunny morning going to be a warm and sunny morning
+      </p>
+      <div class="main__over">
+        <button class="main__btn">Start Typing Text</button>
+        <p class="main__hint">Or click the text and start typing</p>
+      </div>
+    </main>
+
     <!-- <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. Coded by
       <a href="#">Your Name Here</a>.
     </footer> -->
+    <script src="/js/filters.js"></script>
   </body>
 </html>

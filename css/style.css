@@ -60,8 +60,8 @@ body {
   font-size: 1.4rem;
 }
 .typing-stats__item--accuracy {
-  border-left: 1px solid var(--typing-stats-borer-color);
-  border-right: 1px solid var(--typing-stats-borer-color);
+  border-left: 1px solid var(--typing-stats-border-color);
+  border-right: 1px solid var(--typing-stats-border-color);
 }
 
 /*/ FILTERS LAYOUT /*/
@@ -71,6 +71,7 @@ body {
   gap: 10px;
   justify-content: center;
   margin: 0 20px;
+  margin-top: 20px;
 }
 .dropdown {
   position: relative;
@@ -83,7 +84,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px 12px;
-  border-radius: 14px;
+  border-radius: 10px;
   border: 1px solid var(--filters-border-color);
   color: var(--filters-button-text-color);
 }
@@ -91,9 +92,82 @@ body {
 }
 .dropdown__menu {
   display: none;
+  position: absolute;
+  top: calc(100% + 5px);
+  width: 100%;
+  background: var(--dropdown-menu-background-color);
+  border-radius: 10px;
+  /* border: 1px solid var(--filters-border-color); */
+  padding: 4px;
+  z-index: 10;
+}
+.dropdown.is-open .dropdown__menu {
+  display: block;
+}
+.dropdown.is-open .dropdown__arrow {
+  transform: rotate(180deg); /* стрелка переворачивается */
 }
 .option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 6px 6px;
+}
+.option > span {
+  color: var(--dropdown-text-color);
+}
+.option:not(:last-child) {
+  border-bottom: 1px solid var(--option-border-color);
+}
+.option input {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  border: 2px solid var(--dropdown-dot-border-color);
+  border-radius: 50%;
+}
+.option input:checked {
+  border: 5px solid var(--dropdown-dot-background-color);
+  background: black;
 }
 .dropdown__arrow {
   transition: 0.4s ease;
+}
+
+/*/ MAIN TEXT LAYOUT /*/
+
+.main {
+  color: var(--main-text-color);
+  margin: 20px 20px 0px 20px;
+  padding: 20px 0px;
+  border-top: 1px solid var(--main-border-color);
+  border-bottom: 1px solid var(--main-border-color);
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.main__text {
+  font-size: 2rem;
+  filter: blur(0.6rem);
+}
+.main__over {
+  position: absolute;
+  top: calc(100% - 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main__btn {
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  background-color: var(--main-btn-background);
+  border-radius: 12px;
+}
+.main__hint {
+  margin-top: 10px;
+  font-size: 1.2rem;
 }
