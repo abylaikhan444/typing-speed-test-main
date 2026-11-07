@@ -18,4 +18,6 @@
   --main-text-color: #fff;
   --main-border-color: hsl(0, 0%, 15%);
   --main-btn-background: hsl(214, 100%, 55%);
+
+  --btn-restart-background: hsl(0, 0%, 15%);
 }

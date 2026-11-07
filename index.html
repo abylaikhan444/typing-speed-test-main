@@ -15,7 +15,7 @@
         <p class="typing-header__score-text">Best: <span class="typing-header__score-count">92 WPM</span></p>
       </div>
     </header>
-    <div class="typing-stats">
+    <div class="typing-stats" style="display: none">
       <div class="typing-stats__item">
         <span class="typing-stats__label">WPM:</span>
         <span class="typing-stats__value">0</span>
@@ -57,7 +57,6 @@
           <span class="dropdown__value">Timed (60s)</span>
           <img class="dropdown__arrow" src="./assets/images/icon-down-arrow.svg" alt="icon-down-arrow" />
         </button>
-
         <div class="dropdown__menu">
           <label class="option">
             <input type="radio" name="mode" value="Timed (60s)" checked />
@@ -72,16 +71,56 @@
     </div>
 
     <main class="main">
-      <p class="main__text">
+      <p class="main__text" aria-hidden="true">
         The sun rose over the quiet town. Birds sang in the trees as people woke up and started their day. It was going
-        to be a warm and sunny morning. going to be a warm and sunny morning going to be a warm and sunny morning
+        to be a warm and sunny morning. going to be a warm and sunny
       </p>
       <div class="main__over">
-        <button class="main__btn">Start Typing Text</button>
+        <button type="button" class="main__btn">Start Typing Test</button>
         <p class="main__hint">Or click the text and start typing</p>
       </div>
+      <textarea id="input-area" class="main-input"></textarea>
     </main>
 
+    <div class="btn-box">
+      <button class="btn-restart" type="button">
+        Restart Test
+        <img src="./assets/images/icon-restart.svg" alt="restart icon" />
+      </button>
+    </div>
+
+    <div class="typing-result is-hidden">
+      <img class="typing-result__completed" src="./assets/images/icon-completed.svg" alt="completed icon" />
+      <div class="typing-result__text">
+        <h2 class="typing-result__title">Test Complete!</h2>
+        <p class="typing-result__subtitle">Solid run. Keep pushing to beat your high score</p>
+      </div>
+      <div class="typing-result__items">
+        <div class="typing-result__view">
+          <h3 class="typing-result__name">WPM:</h3>
+          <p class="typing-result__summary">85</p>
+        </div>
+        <div class="typing-result__view">
+          <h3 class="typing-result__name">Accuracy:</h3>
+          <p class="typing-result__summary"><span class="typing-result__correct">90%</span></p>
+        </div>
+        <div class="typing-result__view">
+          <h3 class="typing-result__name">Characters:</h3>
+          <p class="typing-result__summary">
+            <span class="typing-result__correct">120</span> / <span class="typing-result__incorrect">5</span>
+          </p>
+        </div>
+      </div>
+      <button class="btn-restart btn-result" type="button">
+        Go Again
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
+          <path
+            fill="#000"
+            d="M1.563 1.281h.949c.246 0 .422.211.422.457l-.07 3.446a8.6 8.6 0 0 1 7.277-3.868c4.816 0 8.718 3.938 8.718 8.72-.035 4.816-3.937 8.683-8.718 8.683a8.86 8.86 0 0 1-5.871-2.215.446.446 0 0 1 0-.633l.703-.703c.14-.14.386-.14.562 0 1.23 1.09 2.813 1.723 4.606 1.723A6.88 6.88 0 0 0 17.03 10c0-3.797-3.093-6.89-6.89-6.89-2.813 0-5.203 1.687-6.293 4.078l4.43-.106c.245 0 .456.176.456.422v.95c0 .245-.21.421-.421.421h-6.75a.406.406 0 0 1-.422-.422v-6.75c0-.21.175-.422.422-.422"
+          />
+        </svg>
+      </button>
+    </div>
     <!-- <footer class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. Coded by
