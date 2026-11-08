@@ -10,6 +10,8 @@
 body {
   background-color: var(--main-background-color);
   font-family: 'Sora', sans-serif;
+  margin-inline: auto;
+  max-width: 1440px;
 }
 
 /*/ HEADER MOBILE LAYOUT /*/
@@ -24,6 +26,7 @@ body {
   width: 35px;
   height: 35px;
 }
+
 .typing-header__score {
   display: flex;
   gap: 4px;
@@ -36,7 +39,9 @@ body {
 .typing-header__score-count {
   color: var(--header-text-color);
 }
-
+.typing-header__score-prefix {
+  display: none;
+}
 /*/ TYPING STATS MOBILE LAYOUT /*/
 
 .typing-stats {
@@ -100,6 +105,10 @@ body {
   /* border: 1px solid var(--filters-border-color); */
   padding: 4px;
   z-index: 10;
+}
+.dropdown__title {
+  color: hsl(240, 3%, 46%);
+  display: none;
 }
 .dropdown.is-open .dropdown__menu {
   display: block;
@@ -263,4 +272,85 @@ body {
 
 .is-hidden {
   display: none;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 768px) {
+  body {
+    padding: 0 50px;
+  }
+  /* HEADER */
+  .typing-header__logo {
+    width: 250px;
+    height: 70px;
+  }
+  .typing-header__score-prefix {
+    display: inline;
+  }
+
+  /* STATS & FILTERS */
+
+  .typing-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .typing-stats__item {
+    display: block;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .typing-result__items {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .dropdown__btn {
+    display: none;
+  }
+  .dropdown__menu {
+    display: flex;
+    position: static;
+    background: transparent;
+  }
+  .option:not(:last-child) {
+    border: none;
+  }
+  .option {
+    border: none;
+    padding: 0 10px;
+  }
+  .option > input {
+    display: none;
+  }
+  .option > span {
+    border: 1px solid hsl(240, 3%, 46%);
+    border-radius: 12px;
+    padding: 5px;
+  }
+  .option > span:hover {
+    outline: 2px solid hsl(210, 100%, 65%);
+    outline-offset: 2px;
+    color: hsl(210, 100%, 65%);
+    border-color: hsl(210, 100%, 65%);
+    transition: 0.4s ease;
+  }
+  .option input:checked + span {
+    border-color: hsl(210, 100%, 65%); /* или твой цвет из переменных */
+    color: hsl(210, 100%, 65%);
+  }
+  .filters {
+    margin: 0;
+  }
+  .main__btn:focus {
+    outline: 2px solid hsl(210, 100%, 65%);
+    outline-offset: 2px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .dropdown__title {
+    display: flex;
+    align-items: center;
+  }
 }

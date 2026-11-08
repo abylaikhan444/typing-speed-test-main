@@ -9,63 +9,74 @@
   </head>
   <body>
     <header class="typing-header">
-      <img class="typing-header__logo" src="./assets/images/logo-small.svg" alt="webwite logo icon" />
+      <picture>
+        <source media="(min-width: 768px)" srcset="./assets/images/logo-large.svg" />
+        <img class="typing-header__logo" src="./assets/images/logo-small.svg" alt="Typing Speed Test logo" />
+      </picture>
       <div class="typing-header__score">
         <img src="./assets/images/icon-personal-best.svg" alt="score icon" />
-        <p class="typing-header__score-text">Best: <span class="typing-header__score-count">92 WPM</span></p>
+        <p class="typing-header__score-text">
+          <span class="typing-header__score-prefix">Personal </span>best:
+          <span class="typing-header__score-count">92 WPM</span>
+        </p>
       </div>
     </header>
-    <div class="typing-stats" style="display: none">
-      <div class="typing-stats__item">
-        <span class="typing-stats__label">WPM:</span>
-        <span class="typing-stats__value">0</span>
-      </div>
-      <div class="typing-stats__item typing-stats__item--accuracy">
-        <span class="typing-stats__label">Accuracy:</span>
-        <span class="typing-stats__value">100%</span>
-      </div>
-      <div class="typing-stats__item">
-        <span class="typing-stats__label">Time:</span>
-        <span class="typing-stats__value">0:60</span>
-      </div>
-    </div>
 
-    <div class="filters">
-      <!-- меню 1 -->
-      <div class="dropdown">
-        <button class="dropdown__btn" id="btn-challenge" type="button">
-          <span class="dropdown__value">Easy</span>
-          <img class="dropdown__arrow" src="./assets/images/icon-down-arrow.svg" alt="icon-down-arrow" />
-        </button>
-        <div class="dropdown__menu">
-          <label class="option">
-            <input type="radio" name="difficult" value="Easy" checked />
-            <span>Easy</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="difficult" value="Medium" />
-            <span>Medium</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="difficult" value="Hard" />
-            <span>Hard</span>
-          </label>
+    <div class="typing-panel">
+      <div class="typing-stats">
+        <div class="typing-stats__item">
+          <span class="typing-stats__label">WPM:</span>
+          <span class="typing-stats__value">0</span>
+        </div>
+        <div class="typing-stats__item typing-stats__item--accuracy">
+          <span class="typing-stats__label">Accuracy:</span>
+          <span class="typing-stats__value">100%</span>
+        </div>
+        <div class="typing-stats__item">
+          <span class="typing-stats__label">Time:</span>
+          <span class="typing-stats__value">0:60</span>
         </div>
       </div>
-      <div class="dropdown">
-        <button class="dropdown__btn" id="btn-timer" type="button">
-          <span class="dropdown__value">Timed (60s)</span>
-          <img class="dropdown__arrow" src="./assets/images/icon-down-arrow.svg" alt="icon-down-arrow" />
-        </button>
-        <div class="dropdown__menu">
-          <label class="option">
-            <input type="radio" name="mode" value="Timed (60s)" checked />
-            <span>Timed (60s)</span>
-          </label>
-          <label class="option">
-            <input type="radio" name="mode" value="Passage" />
-            <span>Passage</span>
-          </label>
+
+      <div class="filters">
+        <!-- меню 1 -->
+        <div class="dropdown">
+          <button class="dropdown__btn" id="btn-challenge" type="button">
+            <span class="dropdown__value">Easy</span>
+            <img class="dropdown__arrow" src="./assets/images/icon-down-arrow.svg" alt="icon-down-arrow" />
+          </button>
+          <div class="dropdown__menu">
+            <span class="dropdown__title">Difficulty:</span>
+            <label class="option">
+              <input type="radio" name="difficult" value="Easy" checked />
+              <span>Easy</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="difficult" value="Medium" />
+              <span>Medium</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="difficult" value="Hard" />
+              <span>Hard</span>
+            </label>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown__btn" id="btn-timer" type="button">
+            <span class="dropdown__value">Timed (60s)</span>
+            <img class="dropdown__arrow" src="./assets/images/icon-down-arrow.svg" alt="icon-down-arrow" />
+          </button>
+          <div class="dropdown__menu">
+            <span class="dropdown__title">Mode:</span>
+            <label class="option">
+              <input type="radio" name="mode" value="Timed (60s)" checked />
+              <span>Timed (60s)</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="mode" value="Passage" />
+              <span>Passage</span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -73,7 +84,7 @@
     <main class="main">
       <p class="main__text" aria-hidden="true">
         The sun rose over the quiet town. Birds sang in the trees as people woke up and started their day. It was going
-        to be a warm and sunny morning. going to be a warm and sunny
+        to be a warm and sunny morning. a warm and sunny morning. going to be
       </p>
       <div class="main__over">
         <button type="button" class="main__btn">Start Typing Test</button>
@@ -83,7 +94,7 @@
     </main>
 
     <div class="btn-box">
-      <button class="btn-restart" type="button">
+      <button class="btn-restart is-hidden" type="button">
         Restart Test
         <img src="./assets/images/icon-restart.svg" alt="restart icon" />
       </button>
