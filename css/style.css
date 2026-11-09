@@ -157,6 +157,8 @@ body {
 }
 .main__text {
   font-size: 2rem;
+}
+.is-blurred {
   filter: blur(0.6rem);
 }
 .main__over {
@@ -272,6 +274,23 @@ body {
 
 .is-hidden {
   display: none;
+}
+
+/* STYLES FOR CHARACTER */
+
+.char {
+  color: hsl(240, 1%, 59%);
+}
+.char--correct {
+  color: hsl(140, 63%, 57%);
+}
+.char--incorrect {
+  color: hsl(354, 63%, 57%);
+  text-decoration: underline;
+}
+.char--current {
+  background-color: hsl(0, 0%, 100%, 0.2);
+  border-radius: 2px;
 }
 
 /* MEDIA QUERIES */
