@@ -2,11 +2,7 @@
 <img width="345" height="340" alt="image" src="https://github.com/user-attachments/assets/423df679-0acd-4625-a152-c16741fa49e7" />
 
 
-
-Вот чистый текст без лишних обёрток — просто нажми кнопку копирования в правом
-верхнем углу блока и вставь в свой README.md:
-
-Frontend Mentor - Typing Speed Test Solution
+# Frontend Mentor - Typing Speed Test Solution
 
 Design preview for the Typing Speed Test coding challenge
 
