@@ -79,3 +79,48 @@ async function loadText() {
   const response = await fetch('./data.json');
   return await response.json();
 }
+2. Динамический рендеринг символов и алгоритм проверки
+Вместо работы со сплошным текстом каждый символ цитаты оборачивается в собственный <span>, что позволяет мгновенно менять классы букв при вводе и поддержке Backspace:
+JavaScript
+for (let i = 0; i < charSpans.length; i++) {
+  if (i < typedText.length) {
+    charSpans[i].className = typedText[i] === charSpans[i].textContent 
+      ? 'char char--correct' 
+      : 'char char--incorrect';
+  } else if (i === typedText.length) {
+    charSpans[i].className = 'char char--current';
+  } else {
+    charSpans[i].className = 'char';
+  }
+}
+3. Честный подсчёт метрик и работа с localStorage
+Ошибки фиксируются только на новых символах (currentLength > prevLength), а лучший результат сохраняется в браузере:
+JavaScript
+const savedBest = localStorage.getItem('personalBest');
+
+if (savedBest === null || currentWpm > Number(savedBest)) {
+  localStorage.setItem('personalBest', currentWpm);
+  resultScore.textContent = currentWpm + ' WPM';
+}
+🚀 Как запустить проект локально
+Склонируйте репозиторий:
+Bash
+git clone https://github.com/abylaikhan444/typing-speed-test-main.git
+Перейдите в папку с проектом:
+Bash
+cd typing-speed-test-main
+Запустите локальный сервер (например, через расширение Live Server в VS Code), так как запросы fetch к data.json требуют работы по протоколу http://.
+👤 Автор
+GitHub — @abylaikhan444
+Frontend Mentor — @abylaikhan444
+👏 Благодарности
+Спасибо сообществу Frontend Mentor за отличный дизайн и реалистичные челленджи для прокачки навыков фронтенд-разработки.
+Code
+---
+
+### Как включить живую ссылку (Live Demo) на GitHub:
+1. Зайди в свой репозиторий на GitHub.
+2. Открой вкладку **Settings** (Настройки).
+3. В левом меню выбери **Pages**.
+4. В разделе **Build and deployment** выбери ветку `main` (или `master`) и папку `/ (root)`, нажми **Save**.
+5. Через 1-2 минуты сайт откроется по адресу: `https://abylaikhan444.github.io/typing-speed-test-main/`!
