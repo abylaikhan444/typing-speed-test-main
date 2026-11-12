@@ -7,6 +7,9 @@ const hiddenInput = document.querySelector('#input-area');
 const timerSpan = document.querySelector('#stat-time');
 const wpmSpan = document.querySelector('#stat-wpm');
 const accuracySpan = document.querySelector('#stat-accuracy');
+const againButton = document.querySelector('#btn-again');
+const difficultyInputs = document.querySelectorAll('input[name="difficulty"]');
+const modsInput = document.querySelectorAll('input[name="mode"]');
 // RESULT VARIABLES
 const resultContainer = document.querySelector('.typing-result');
 const resultTitle = document.querySelector('.typing-result__title');
@@ -22,6 +25,11 @@ let isTestRunning = false;
 let prevLength = 0;
 let totalTyped = 0;
 let totalErrors = 0;
+let currentDifficulty = 'easy';
+let timeLeft = 60;
+let timerId = null;
+let currentMode = 'timed';
+let timeElapsed = 0;
 
 async function loadText() {
   const response = await fetch('./data.json');
@@ -29,18 +37,23 @@ async function loadText() {
 }
 
 async function init() {
-  const textContainer = document.querySelector('.main__text');
   const savedBest = localStorage.getItem('personalBest');
   if (savedBest !== null) {
     resultScore.textContent = savedBest + ' WPM';
   }
   data = await loadText(); // теперь это настоящие данные, не Promise
   // console.log(typeof data); // посмотри, какая у них структура
-
-  // достаём конкретный текст
-  const randomIndex = Math.floor(Math.random() * data.easy.length);
-  const text = data.easy[randomIndex].text;
+  renderNewPassage();
   // console.log(text); // text current
+}
+
+init();
+
+function renderNewPassage() {
+  const passage = data[currentDifficulty];
+  const textContainer = document.querySelector('.main__text');
+  const randomIndex = Math.floor(Math.random() * passage.length);
+  const text = passage[randomIndex].text;
 
   const html = text
     .split('')
@@ -53,7 +66,18 @@ async function init() {
   textContainer.innerHTML = html;
 }
 
-init();
+difficultyInputs.forEach((input) => {
+  input.addEventListener('change', (diff) => {
+    currentDifficulty = diff.target.value.toLowerCase();
+    restartTest();
+  });
+});
+modsInput.forEach((input) => {
+  input.addEventListener('change', (mod) => {
+    currentMode = mod.target.value.toLowerCase();
+    restartTest();
+  });
+});
 
 // Старт приложения
 
@@ -114,25 +138,28 @@ function formatTime(seconds) {
   return result;
 }
 
-let timeLeft = 60;
-let timerId = null;
-
 function startTimer() {
   timerId = setInterval(() => {
-    timeLeft--;
-    timerSpan.textContent = formatTime(timeLeft);
-    if (timeLeft <= 0) {
-      clearInterval(timerId);
-      finishTest();
-      console.log('Время вышло!');
+    if (currentMode === 'timed') {
+      timeLeft--;
+      timeElapsed = 60 - timeLeft;
+      timerSpan.textContent = formatTime(timeLeft);
+
+      if (timeLeft <= 0) {
+        clearInterval(timerId);
+        finishTest();
+      }
+    } else {
+      timeElapsed++;
+      timerSpan.textContent = formatTime(timeElapsed);
     }
+
     updateStats();
   }, 1000);
 }
 
 function updateStats() {
   const correctsChar = document.querySelectorAll('.char--correct').length;
-  const timeElapsed = 60 - timeLeft;
   const timeInMinutes = timeElapsed / 60;
   let newWpm = 0;
   if (timeElapsed > 0) {
@@ -176,5 +203,33 @@ function finishTest() {
 }
 
 function restartTest() {
-  
+  clearInterval(timerId);
+  timerId = null;
+  isTestRunning = false;
+  timeLeft = 60;
+  timeElapsed = 0;
+  totalErrors = 0;
+  totalTyped = 0;
+  prevLength = 0;
+
+  if (currentMode === 'timed') {
+    timerSpan.textContent = formatTime(60);
+  } else {
+    timerSpan.textContent = formatTime(0);
+  }
+
+  hiddenInput.value = '';
+  wpmSpan.textContent = '0';
+  accuracySpan.textContent = '100%';
+
+  resultContainer.classList.add('is-hidden');
+  mainContainer.classList.remove('is-hidden');
+  textQuote.classList.add('is-blurred');
+  blurContainer.classList.remove('is-hidden');
+  restartButton.classList.add('is-hidden');
+
+  renderNewPassage();
 }
+
+restartButton.addEventListener('click', restartTest);
+againButton.addEventListener('click', restartTest);
